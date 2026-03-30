@@ -6,7 +6,7 @@ function Footer() {
           <h6 className='fw-bold mb-1'>GearMarket</h6>
           <p className='text-body-white mb-0'>Marketplace especializado en artículos deportivos usados y seminuevos.</p>
         </div>
-        <div className='text-body-white small'>Hito 3 · Backend · </div>
+        <div className='text-body-white small'>Hito 4 · Despliegue Netlify + Render · </div>
       </div>
     </footer>
   );

@@ -1,0 +1,53 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "GearMarket Hito 3",
+  "dateExported": "2026-03-23T00:00:00.000Z",
+  "version": "1.0",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "health",
+      "colId": "gearmarket",
+      "containerId": "",
+      "name": "Health",
+      "url": "http://localhost:3000/health",
+      "method": "GET",
+      "sortNum": 10000
+    },
+    {
+      "_id": "register",
+      "colId": "gearmarket",
+      "containerId": "",
+      "name": "Register",
+      "url": "http://localhost:3000/api/v1/auth/register",
+      "method": "POST",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Ana Torres\",\n  \"email\": \"ana@test.cl\",\n  \"password\": \"123456\"\n}"
+      },
+      "sortNum": 20000
+    },
+    {
+      "_id": "login",
+      "colId": "gearmarket",
+      "containerId": "",
+      "name": "Login",
+      "url": "http://localhost:3000/api/v1/auth/login",
+      "method": "POST",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"ana@test.cl\",\n  \"password\": \"123456\"\n}"
+      },
+      "sortNum": 30000
+    },
+    {
+      "_id": "publications",
+      "colId": "gearmarket",
+      "containerId": "",
+      "name": "List Publications",
+      "url": "http://localhost:3000/api/v1/publications",
+      "method": "GET",
+      "sortNum": 40000
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "GearMarket Hito 3",
+  "dateExported": "2026-03-23T00:00:00.000Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "req_register",
+      "name": "Auth - Register",
+      "url": "{{baseUrl}}/auth/register",
+      "method": "POST",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Daniel\",\n  \"email\": \"daniel@mail.com\",\n  \"password\": \"123456\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_login",
+      "name": "Auth - Login",
+      "url": "{{baseUrl}}/auth/login",
+      "method": "POST",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"daniel@mail.com\",\n  \"password\": \"123456\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_get_publications",
+      "name": "Publications - List",
+      "url": "{{baseUrl}}/publications",
+      "method": "GET"
+    },
+    {
+      "_id": "req_create_publication",
+      "name": "Publications - Create",
+      "url": "{{baseUrl}}/publications",
+      "method": "POST",
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Bicicleta Trek\",\n  \"description\": \"Excelente estado\",\n  \"price\": 520000,\n  \"image_url\": \"https://example.com/bike.jpg\",\n  \"category\": \"ciclismo\",\n  \"location\": \"Valparaíso\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ]
+    },
+    {
+      "_id": "req_profile",
+      "name": "Profile - Me",
+      "url": "{{baseUrl}}/profile",
+      "method": "GET",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "headers": [],
+    "auth": {}
+  },
+  "variables": [
+    {
+      "name": "baseUrl",
+      "value": "http://localhost:3000/api/v1"
+    },
+    {
+      "name": "token",
+      "value": ""
+    }
+  ]
+}

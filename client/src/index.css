@@ -1,0 +1,204 @@
+:root {
+  --gm-primary: #2563eb;
+  --gm-primary-dark: #1d4ed8;
+  --gm-secondary: #22c55e;
+  --gm-accent: #f97316;
+  --gm-surface: #f8fafc;
+  --gm-surface-alt: #eaf2fb;
+  --gm-surface-deep: #0f172a;
+  --gm-card: rgba(248, 250, 252, 0.94);
+  --gm-text: #1e293b;
+  --gm-muted: #64748b;
+  --gm-border: #e2e8f0;
+}
+
+html {
+  background: var(--gm-surface-deep);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  color: var(--gm-text);
+  background: radial-gradient(circle at top, rgba(37, 99, 235, 0.16), transparent 34%), linear-gradient(180deg, var(--gm-surface-alt) 0%, var(--gm-surface) 32%, #dbeafe 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: transparent !important;
+}
+
+.brand-badge {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--gm-primary), var(--gm-secondary));
+  color: white;
+  font-size: 0.875rem;
+}
+
+.navbar-logo {
+  width: 18rem;
+  height: 8rem;
+  border-radius: 0 !important;
+  object-fit: contain;
+}
+
+.custom-navbar {
+  min-height: auto;
+  height: auto;
+  background: rgba(15, 23, 42, 0.92) !important;
+  backdrop-filter: blur(10px);
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link,
+.custom-navbar .navbar-text {
+  color: #f8fafc !important;
+}
+
+.custom-navbar .nav-link.active,
+.custom-navbar .nav-link:hover {
+  color: #93c5fd !important;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, var(--gm-primary-dark) 0%, var(--gm-primary) 55%, var(--gm-surface-deep) 100%);
+}
+
+.bg-hero-aside {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-card {
+  backdrop-filter: blur(8px);
+}
+
+.card,
+.publication-form,
+.detail-card {
+  background: var(--gm-card);
+}
+
+.product-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.detail-image {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.detail-badge {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--gm-primary);
+}
+
+.avatar-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--gm-primary), var(--gm-accent));
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.form-control,
+.form-select {
+  border-color: var(--gm-border);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.15);
+}
+
+.btn-primary {
+  background-color: var(--gm-primary);
+  border-color: var(--gm-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--gm-primary-dark);
+  border-color: var(--gm-primary-dark);
+}
+
+.btn-warning {
+  background-color: var(--gm-accent);
+  border-color: var(--gm-accent);
+  color: white;
+}
+
+.btn-warning:hover,
+.btn-warning:focus {
+  background-color: #ea580c;
+  border-color: #ea580c;
+  color: white;
+}
+
+.btn-outline-primary {
+  color: var(--gm-primary);
+  border-color: var(--gm-primary);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: var(--gm-primary);
+  border-color: var(--gm-primary);
+}
+
+.text-success {
+  color: var(--gm-secondary) !important;
+}
+
+footer {
+  background: rgba(15, 23, 42, 0.92);
+  color: #f8fafc;
+}
+
+@media (max-width: 767px) {
+  .product-image {
+    height: 220px;
+  }
+
+  .detail-image {
+    min-height: 280px;
+  }
+}

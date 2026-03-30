@@ -1,0 +1,206 @@
+openapi: 3.0.3
+info:
+  title: GearMarket API
+  version: 1.0.0
+  description: Contrato actualizado para Hito 3 Backend
+servers:
+  - url: http://localhost:3000/api/v1
+paths:
+  /auth/register:
+    post:
+      summary: Registrar usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: Usuario registrado
+  /auth/login:
+    post:
+      summary: Iniciar sesión
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Login exitoso
+  /publications:
+    get:
+      summary: Listar publicaciones
+      responses:
+        '200':
+          description: Lista de publicaciones
+    post:
+      summary: Crear publicación
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePublicationRequest'
+      responses:
+        '201':
+          description: Publicación creada
+  /publications/{id}:
+    get:
+      summary: Obtener detalle de publicación
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalle de publicación
+        '404':
+          description: No encontrada
+    put:
+      summary: Actualizar publicación
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Publicación actualizada
+        '403':
+          description: No autorizado
+    delete:
+      summary: Eliminar publicación
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Publicación eliminada
+  /favorites:
+    get:
+      summary: Listar favoritos del usuario
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de favoritos
+    post:
+      summary: Agregar favorito
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Favorito agregado
+  /favorites/{publicationId}:
+    delete:
+      summary: Eliminar favorito
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: publicationId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Favorito eliminado
+  /messages:
+    get:
+      summary: Listar conversaciones del usuario autenticado
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Conversaciones agrupadas por publicación y contraparte
+    post:
+      summary: Enviar mensaje
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Mensaje enviado
+
+  /messages/thread/{publicationId}/{userId}:
+    get:
+      summary: Obtener historial de conversación por publicación y contraparte
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: publicationId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Historial de mensajes ordenado cronológicamente
+  /profile:
+    get:
+      summary: Obtener perfil del usuario autenticado
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Perfil del usuario
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    RegisterRequest:
+      type: object
+      required: [name, email, password]
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    CreatePublicationRequest:
+      type: object
+      required: [title, description, price, image_url, category, location]
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        image_url:
+          type: string
+        category:
+          type: string
+        location:
+          type: string

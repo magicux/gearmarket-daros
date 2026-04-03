@@ -202,3 +202,25 @@ footer {
     min-height: 280px;
   }
 }
+@media (max-width: 991.98px) {
+  .navbar-logo {
+    width: 10rem;
+    height: 4rem;
+  }
+
+  .custom-navbar .navbar-collapse {
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .custom-navbar .navbar-nav {
+    align-items: flex-start !important;
+    gap: 0.25rem;
+  }
+
+  .custom-navbar .nav-item,
+  .custom-navbar .nav-link,
+  .custom-navbar .btn {
+    width: 100%;
+  }
+}

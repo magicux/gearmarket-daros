@@ -11,7 +11,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg border-bottom sticky-top shadow-sm custom-navbar">
+    <nav className="navbar navbar-expand-lg border-bottom sticky-top shadow-sm custom-navbar" data-bs-theme="dark">
       <div className="container py-1">
         <Link className="navbar-brand fw-bold text-primary" to="/">
           <img src="/logo1.jpeg" alt="GearMarket Logo" className="navbar-logo" />
